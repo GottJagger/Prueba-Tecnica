@@ -14,12 +14,12 @@ use App\Http\Controllers\ProductosController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 
 Route::get('/productos', 'App\Http\Controllers\ProductosController@index'); //mostrar todos los productos
-Route::post('/productos', 'App\Http\Controllers\ProductosController@store'); //crear un producto
-Route::put('/productos{id}', 'App\Http\Controllers\ProductosController@update'); //crear un producto
-Route::delete('/productos{id}', 'App\Http\Controllers\ProductosController@destroy'); //crear un producto
+Route::get('/productos/{id}', 'App\Http\Controllers\ProductosController@show'); //mostrar un producto por id
+
+Route::post('/compras', 'App\Http\Controllers\ComprasController@store'); //guardar una compra
+
+
+

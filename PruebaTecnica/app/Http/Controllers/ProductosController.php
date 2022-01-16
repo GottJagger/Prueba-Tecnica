@@ -14,15 +14,7 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        $datos['productos'] = productos::all();
-        $id = $datos['productos']->id;
-        $nombre = $datos['productos']->nombre;
-        $descripcion = $datos['productos']->descripcion;
-        $precio = $datos['productos']->precio;
-        $cantidad = $datos['productos']->cantidad;
-
-
-
+        $datos['productos'] = productos::where('cantidad','>',0)->get();
         return $datos;
     }
 
@@ -53,10 +45,18 @@ class ProductosController extends Controller
      * @param  \App\Models\productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function show(productos $productos)
+    public function show(productos $productos,$id)
     {
 
+        $datos['productos'] = productos::find($id);
+        if($datos==null){
+            return "No existe el producto";
+        }
+        return $datos;
+
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

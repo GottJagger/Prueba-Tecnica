@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\CompraController;
-
+use App\Http\Controllers\ComprasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +15,11 @@ use App\Http\Controllers\CompraController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+route::get('/', function () {
+    return view('pages.home'); //mostrar la vista home
+});
 
-
-
-
-
-// Route::resource('productos', 'App\Http\Controllers\ProductosController');
+route::get('/compras',[ComprasController::class,'index']);
 
 
 
