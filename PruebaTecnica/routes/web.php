@@ -19,7 +19,4 @@ route::get('/', function () {
     return view('pages.home'); //mostrar la vista home
 });
 
-route::get('/compras',[ComprasController::class,'index']);
-
-
 
